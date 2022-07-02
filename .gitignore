@@ -1,0 +1,4 @@
+env/
+src/code_mintage.egg-info/
+src/__pycache__/
+build/

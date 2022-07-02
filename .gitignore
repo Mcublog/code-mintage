@@ -2,3 +2,4 @@ env/
 src/code_mintage.egg-info/
 src/__pycache__/
 build/
+src/code_mintage/__pycache__/

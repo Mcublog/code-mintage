@@ -1,0 +1,4 @@
+colorama
+build
+twine
+auto-changelog

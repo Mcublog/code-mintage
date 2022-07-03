@@ -28,6 +28,6 @@ class Configurations:
     configurations: list
 
 
-def cpp_properties(defines: list) -> Configurations:
+def get(defines: list) -> Configurations:
     return Configurations(
         configurations=[Configuration(defines=(defines + DEFAULT_DEFINES))])

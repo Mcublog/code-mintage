@@ -3,5 +3,6 @@ src/code_mintage.egg-info/
 src/__pycache__/
 build/
 src/code_mintage/__pycache__/
-tasks.json
-c_cpp_properties.json
+tests/tasks.json
+tests/cpp_properties.json
+tests/__pycache__/

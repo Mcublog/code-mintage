@@ -1,5 +1,4 @@
-import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -27,12 +26,9 @@ COMMAND = ("emBuild -threadnum 32 -config {config} "
            "${{workspaceFolder}}/{path}/${{config:SES_PROJECT_NAME}}.emProject")
 
 
-def build_tasks(ses_dir: str) -> Tasks:
+def create(ses_dir: str) -> Tasks:
     tasks = [
         SesTask(command=[COMMAND.format(config="Debug", path=ses_dir)]),
         SesTask(command=[COMMAND.format(config="Release", path=ses_dir)])
     ]
     return Tasks(tasks)
-    # output = Tasks(tasks)
-    # with open("tasks.json", "w+") as f:
-    #     json.dump(asdict(output), f, indent=4)

@@ -2,3 +2,4 @@ colorama
 build
 twine
 auto-changelog
+pytest

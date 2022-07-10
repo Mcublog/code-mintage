@@ -4,6 +4,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 from cpp_properties import Configurations
+from settings import Settings
 from tasks import Tasks
 
 FLASH_FILE_NAME = 'flash.ps1'
@@ -36,6 +37,10 @@ class ProjectTree:
             f.write(command)
         with Path(self.scripts).joinpath(FLASH_FILE_NAME).open("w+") as f:
             f.write(launcher)
+
+    def place_settings(self, settings: Settings) -> None:
+        with Path(self.vscode).joinpath("settings.json").open("w+") as f:
+            json.dump(settings.data, f, indent=4)
 
     def get_scripts_path(self) -> Path:
         return Path(self.scripts).joinpath(FLASH_FILE_NAME)

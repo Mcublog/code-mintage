@@ -6,3 +6,4 @@ src/code_mintage/__pycache__/
 tests/tasks.json
 tests/cpp_properties.json
 tests/__pycache__/
+testproj/

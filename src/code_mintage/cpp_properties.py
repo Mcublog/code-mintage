@@ -1,5 +1,5 @@
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 
 DEFAULT_DEFINES = ["FREERTOS", "USE_FULL_LL_DRIVER", "USE_HAL_DRIVER"]
 

@@ -7,3 +7,4 @@ tests/tasks.json
 tests/cpp_properties.json
 tests/__pycache__/
 testproj/
+dist/

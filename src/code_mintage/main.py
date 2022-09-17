@@ -31,7 +31,7 @@ def main():
     launcher = jlink_scripts.launcher()
 
     settings = Settings()
-    tasklist = tasks.create(ses_dir="SES", flash_script_path=str(tree.get_scripts_path()))
+    tasklist = tasks.create(ses_dir="ses", flash_script_path=str(tree.get_scripts_path()))
     properties = cpp_properties.get(defines=[
         "ARM_MATH_CM4", "STM32L431xx", "__STM32L431_SUBFAMILY", "__STM32L4XX_FAMILY"
     ])

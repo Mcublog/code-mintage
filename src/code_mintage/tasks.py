@@ -33,12 +33,20 @@ class Tasks:
 COMMAND = ("emBuild -threadnum 32 -config {config} "
            "-project ${{config:SES_PROJECT_NAME}} "
            "${{workspaceFolder}}/{path}/${{config:SES_PROJECT_NAME}}.emProject")
+CLEANUP = (
+    "emBuild -config {config} -clean -project ${{config:SES_PROJECT_NAME}} ${{workspaceFolder}}/{path}/${{config:SES_PROJECT_NAME}}.emProject;"
+)
 
 
 def create(ses_dir: str, flash_script_path: str) -> Tasks:
     tasks = [
         SesTask(command=[COMMAND.format(config="Debug", path=ses_dir)]),
-        SesTask(command=[COMMAND.format(config="Release", path=ses_dir)]),
+        SesTask(command=[CLEANUP.format(config="Debug", path=ses_dir)],
+                label="Clean: debug"),
+        SesTask(command=[COMMAND.format(config="Release", path=ses_dir)],
+                label="Build: release"),
+        SesTask(command=[CLEANUP.format(config="Release", path=ses_dir)],
+                label="Clean: release"),
         Flashing(command=flash_script_path)
     ]
     return Tasks(tasks)
